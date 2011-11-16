@@ -175,11 +175,11 @@ class Instance < ActiveRecord::Base
 
 
   def image
-    Image.find(image_uuid) if image_uuid
+    Aeolus::Image::Warehouse::Image.find(image_uuid) if image_uuid
   end
 
   def image_build
-    ImageBuild.find(image_build_uuid) if image_build_uuid
+    Aeolus::Image::Warehouse::ImageBuild.find(image_build_uuid) if image_build_uuid
   end
 
   def assembly_xml
@@ -342,8 +342,7 @@ class Instance < ActiveRecord::Base
     errors << I18n.t('instances.errors.user_quota_reached') if owner.quota.reached?
     errors << I18n.t('instances.errors.image_not_found', :b_uuid=> image_build_uuid, :i_uuid => image_uuid) if image_build.nil? and image.nil?
     return [[], errors] unless errors.empty?
-
-    build = image_build || image.latest_build
+    build = image_build || image.latest_pushed_build
     provider_images = build ? build.provider_images : []
     matched = []
     pool.pool_family.provider_accounts.each do |account|

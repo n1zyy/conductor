@@ -34,11 +34,11 @@
       application</description>
       <assemblies>
       <assembly name="frontend" hwp="front_hwp1">
-      <image id="53d2a281-448b-4872-b1b0-680edaad5922">
+      <image id="ca57435a-5ce4-413c-9ece-17e5c75a643b">
       </image>
       </assembly>
       <assembly name="backend" hwp="front_hwp2">
-      <image id="85653387-88b2-46b0-b7b2-c779d2af06c7" build="c5fc000b-829a-4bb5-9df1-bb228da2c7ec">
+      <image id="68915cc1-a2af-444b-a880-99c74881d50b" build="7ef5dfe9-600f-4fc6-ab49-e5c706c63758">
       </image>
       </assembly>
       </assemblies>
@@ -80,7 +80,7 @@
       <description>A Deployable with launch parameters</description>
       <assemblies>
       <assembly name='assembly_with_launch_parameters' hwp='front_hwp1'>
-      <image id='34c87aa0-3405-42f8-820e-309054029295'/>
+      <image id='68915cc1-a2af-444b-a880-99c74881d50b'/>
       <services>
       <service name='service_with_launch_parameters'>
       <executable url='executable_url'/>
