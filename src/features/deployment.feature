@@ -30,8 +30,9 @@ Feature: Manage Deployments
     Given a pool "mockpool" exists
     And there is "front_hwp1" conductor hardware profile
     And there is "front_hwp2" conductor hardware profile
-    And there is mock provider account "my_mock_provider"
-    And there is a provider account "my_mock_provider" related to pool family "default"
+    And there is mock provider account "Mockery"
+    And there is a provider account "Mockery" related to pool family "default"
+    #Then I drop into a debugger
     When I am viewing the pool "mockpool"
     And I follow "new_deployment_button"
     Then I should see "New Deployment"
