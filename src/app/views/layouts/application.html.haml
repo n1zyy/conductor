@@ -1,62 +1,124 @@
 !!! 5
-%html{"xml:lang" => "en", :lang => "en"}
+/[if lt IE 7] <html class="app no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
+/[if IE 7] <html class="app no-js lt-ie9 lt-ie8" lang="en">
+/[if IE 8] <html class="app no-js lt-ie9" lang="en">
+/ Consider adding a manifest.appcache: h5bp.com/d/Offline
+/ [if gt IE 8]><!
+%html.no-js{:lang => "en", "xml:lang" => "en"}
+  / <![endif]
   %head
-    %meta{:charset => 'utf-8'}/
-    %title= @title
-    %link{:rel =>  'shortcut icon', :href => '/favicon.ico'}
-    = stylesheet_link_tag '/stylesheets/reset.css'
-    = stylesheet_link_tag '/stylesheets/960.css'
-    = stylesheet_link_tag '/stylesheets/buttons.css'
-    = stylesheet_link_tag '/stylesheets/compiled/layout.css'
-    = stylesheet_link_tag 'jquery.ui-1.8.1/jquery-ui-1.8.1.custom.css'
-    /[if lt IE 9]
-      = javascript_include_tag 'http://html5shiv.googlecode.com/svn/trunk/html5.js'
-    /[if lt IE 8]
-      = stylesheet_link_tag '/stylesheets/layout_ie7.css'
-    = stylesheet_link_tag '/stylesheets/compiled/custom.css'
+    %meta{:charset => "utf-8"}
+      / <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      / will uncomment this ^^ later
+      %title= @title
+      %meta{:content => "", :name => "description"}
+        %meta{:content => "width=device-width", :name => "viewport"}
+          // Existing Conductor stylesheets:
+          // These cause some style clashes
+          = stylesheet_link_tag '/stylesheets/reset.css'
+          = stylesheet_link_tag '/stylesheets/960.css'
+          = stylesheet_link_tag '/stylesheets/buttons.css'
+          = stylesheet_link_tag '/stylesheets/compiled/layout.css'
+          = stylesheet_link_tag 'jquery.ui-1.8.1/jquery-ui-1.8.1.custom.css'
+          /[if lt IE 9]
+            = javascript_include_tag 'http://html5shiv.googlecode.com/svn/trunk/html5.js'
+          /[if lt IE 8]
+            = stylesheet_link_tag '/stylesheets/layout_ie7.css'
+          = stylesheet_link_tag '/stylesheets/compiled/custom.css'
 
-    :javascript
-      window.Conductor = {}
-      window.Conductor.PATH_PREFIX = "#{root_path}"
-      // This hack prevents Backbone from switching to the #/pools/1 type URLs
-      // when the browser doesn't support the HTML5 History API.
-      window.history || (window.history = {});
-      window.history.pushState || (window.history.pushState = function(){});
-      window.history.replaceState || (window.history.replaceState = function(){});
-
-    = javascript_include_tag "jquery-1.6.1.min.js"
-    = javascript_include_tag "jquery.ui-1.8.1/jquery-ui-1.8.1.custom.min.js"
-    = javascript_include_tag "jquery.tmpl.min.js"
-    = javascript_include_tag "underscore-min.js"
-    = javascript_include_tag "backbone-min.js"
-
-    = javascript_include_tag "application.js"
-    = javascript_include_tag "yetii-min.js"
-
-    = javascript_include_tag "backbone/models.js"
-    = javascript_include_tag "backbone/views.js"
-    = javascript_include_tag "backbone/routers.js"
-    = javascript_include_tag "rails.js"
-    = csrf_meta_tag
-    = yield :scripts
-  %body{:class => "#{(["pools" ,"deployments", "instances"].include? controller_name) ? 'monitor' : 'administer'}" }
-    #primary-container
-
-      %header#masthead
-        = render :partial => 'layouts/masthead'
-
-      = render :partial => '/layouts/new_notification' if flash.present? or content_for?(:error_messages)
-
-      %nav#primary
-        =render_navigation :level => 1
-
-      #content
-        -# works with any 960 container (.container_16 or .container_24)
-        = yield
-        .clear
-      .clearfooter
-    %footer.standard
-      .container
-        #legal
-          %nav.footer
-            %span.copyright!= t('layout.copyright')
+          // New layout styles:
+          %link{:href => "stylesheets/header.css", :rel => "stylesheet"}
+          %script{:src => "javascripts/lib/modernizr-custom.js"}
+            /[if (gte IE 6)&(lte IE 8)] <script type="text/javascript" src="javascripts/lib/selectivizr-min.js"></script>
+  %body.app
+    / mawagner - I'm not sure anyone using IE < 9 is doing so
+    / by choice; this might be an irritant...
+    /[if lt IE 9] <p class="browser-warning"> Please consider <a href="http://browsehappy.com/">upgrading your browser</a> </p>
+    %header
+      %article
+        %h1
+          Cloud
+          %strong Forms
+          %em Cloud Engine
+        / Need to split this out into a partial... mawagner
+        %nav#appnav
+          %ul
+            %li
+              %a{:href => "#monitor"} monitor
+              %ul
+                %li
+                  %a{:href => "#"} new resource zone
+            %li
+              %a{:href => "#administer"} administer
+              %ul
+                %li
+                  %a{:href => "#"} users
+                  %ul
+                    %li
+                      %a{:href => "#"} users list
+                    %li
+                      %a{:href => "#"} global role grants
+                %li
+                  %a{:href => "#"} clouds
+                  %ul
+                    %li
+                      %a{:href => "#"} clouds list
+                    %li
+                      %a{:href => "#"} component outlines
+                    %li
+                      %a{:href => "#"} new cloud
+                %li
+                  %a{:href => "#"} content
+                  %ul
+                    %li
+                      %a{:href => "#"} catalogs
+                    %li
+                      %a{:href => "#"} resource clusters
+                    %li
+                      %a{:href => "#"} hardware
+                    %li
+                      %a{:href => "#"} new catalog
+                %li
+                  %a{:href => "#"} cloud resource provders
+                  %ul
+                    %li
+                      %a{:href => "#"} connectivity
+                    %li
+                      %a{:href => "#"} accounts
+                    %li
+                      %a{:href => "#"} resource clusters
+                    %li
+                      %a{:href => "#"} role assignments
+                    %li
+                      %a{:href => "#"} new resource provider
+                %li
+                  %a{:href => "#"} settings
+        %section
+          / mawagner - We don't have this feature yet
+          / %a{:href => "#", :title => "32 notification"} 20
+          %a{:href => "#"} admin
+    %article#content
+      = yield
+      /%section#monitor.active
+      /  %h1 monitor page
+      /%section#administer
+      /  %h1 administer section
+    %footer
+      %p Copyright © 2012 Red Hat, Inc. All Rights Reserved
+      %nav
+        %a{:href => "#"} Disclaimer
+        %a{:href => "#"} Terms of Use
+        %a{:href => "#"} Support
+    .no-js-controls
+      %a.top-link{:href => "#"} top
+      / for the no-js
+      #bottom
+      %a.bottom-link{:href => "#bottom"} bottom
+    #global-tips
+    %script{:src => "javascripts/lib/jquery-1.7.2.min.js"}
+    %script{:src => "javascripts/rh-status.js"}
+    %script{:src => "javascripts/rh-views.js"}
+    // mawagner: These are referened in the HTML but are missing there too:
+    / %script{:src => "javascripts/rh-nojs.js"}
+    / %script{:src => "javascripts/rh-references.js"}
+    / %script{:src => "javascripts/lib/polyfill-placeholder.js"}
