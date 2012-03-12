@@ -296,19 +296,19 @@ strong, em, b, i{ font-family: $font-family-em; }
 $monitorcontentpadding: 7px;
 $administercontentpadding: 0px 0px 0px 0px;
 
-body.monitor div#content{
+body.monitor article#content{
   width: $width - (2 * $monitorcontentpadding);
   padding: $monitorcontentpadding;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.50);
   -moz-box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.50);
   -webkit-box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.50);
 }
-body.administer div#content{
+body.administer article#content{
   width: $width;
   padding: $administercontentpadding;
 }
 
-div#content{
+article#content{
   margin: 0 auto;
   margin-bottom: 58px;
   min-height: 200px;
@@ -1197,7 +1197,7 @@ Page Header -- v.0.0.1 [header] (header.scss)
 
 $font-family-primary: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
-div#content .page-header{
+article#content .page-header{
 
   display: block;
   background: #ccc;

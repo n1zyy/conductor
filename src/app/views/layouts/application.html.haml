@@ -27,8 +27,8 @@
           = stylesheet_link_tag '/stylesheets/compiled/custom.css'
 
           // New layout styles:
-          %link{:href => "stylesheets/header.css", :rel => "stylesheet"}
-          %script{:src => "javascripts/lib/modernizr-custom.js"}
+          %link{:href => "/stylesheets/header.css", :rel => "stylesheet"}
+          %script{:src => "/javascripts/lib/modernizr-custom.js"}
             /[if (gte IE 6)&(lte IE 8)] <script type="text/javascript" src="javascripts/lib/selectivizr-min.js"></script>
   %body.app
     / mawagner - I'm not sure anyone using IE < 9 is doing so
@@ -95,7 +95,7 @@
                   %a{:href => "#"} settings
         %section
           / mawagner - We don't have this feature yet
-          / %a{:href => "#", :title => "32 notification"} 20
+          %a{:href => "#", :title => "0 notifications"} 0
           %a{:href => "#"} admin
     %article#content
       = yield
