@@ -3619,3 +3619,122 @@ footer.standard{
 
   span.copyright{}
 }
+
+
+/*
+  Styles for new layout
+
+*/
+
+header.shell-design {
+  height: 5.5em !important;
+  > article {
+    max-width: 80em;
+    margin: 0 auto; }
+  nav#appnav > ul > li:hover > ul {
+    z-index: 9999 !important;
+    /*painfully silly hack*/
+    margin-top: -0.25em;
+    padding-top: 0em !important; } }
+
+/* bonus: fix up overview scorecard */
+
+#scoreboard {
+  font-family: overpass;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  min-height: 7em;
+  width: 100%;
+  padding: 2em 1em 1em 1em;
+  background-color: #f6f6f6;
+  /*box-shadow*/
+  -webkit-box-shadow: inset 0em .06em 1em #ddd;
+  -moz-box-shadow: inset 0em .06em 1em #ddd;
+  box-shadow: inset 0em .06em 1em #ddd;
+  /*border-radius*/
+  -webkit-border-radius: 0em 0em .5em .5em;
+  -moz-border-radius: 0em 0em .5em .5em;
+  border-radius: 0em 0em .5em .5em;
+  ul.groups > li + li {
+    background-image: none;
+    margin: 0em;
+    padding: 0em 1em;
+    border-left: .1em dotted #ddd; } }
+
+/* fixing up the content to work with new header*/
+
+div#content {
+  border-color: #eee;
+  background-image: none;
+  /*box-shadow*/
+  -webkit-box-shadow: inset 0px .25em .25em #aaa, 0px .5em 2em #000 !important;
+  -moz-box-shadow: inset 0px .25em .25em #aaa, 0px .5em 2em #000 !important;
+  box-shadow: inset 0px .25em .25em #aaa, 0px .5em 2em #000 !important;
+  /*border-radius*/
+  -webkit-border-radius: 0em 0em .5em .5em;
+  -moz-border-radius: 0em 0em .5em .5em;
+  border-radius: 0em 0em .5em .5em;
+  border-top: transparent none 0px; }
+
+/* Page header fixup */
+
+.administer nav#administer_nav {
+  background-image: none;
+  background-color: #ddd;
+  /*box-shadow*/
+  -webkit-box-shadow: inset 0em 0em 0em 1px rgba(0, 0, 0, 0.05), inset 0em 2px 0em rgba(255, 255, 255, 0.5), inset 0em -1em 2em rgba(0, 0, 0, 0.05), 0px 0.6em 0.5em -0.5em rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0em 0em 0em 1px rgba(0, 0, 0, 0.05), inset 0em 2px 0em rgba(255, 255, 255, 0.5), inset 0em -1em 2em rgba(0, 0, 0, 0.05), 0px 0.6em 0.5em -0.5em rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0em 0em 0em 1px rgba(0, 0, 0, 0.05), inset 0em 2px 0em rgba(255, 255, 255, 0.5), inset 0em -1em 2em rgba(0, 0, 0, 0.05), 0px 0.6em 0.5em -0.5em rgba(0, 0, 0, 0.3);
+  /*border-radius*/
+  -webkit-border-radius: 0em;
+  -moz-border-radius: 0em;
+  border-radius: 0em; }
+
+div#content .page-header {
+  background-image: none;
+  background-color: #ddd;
+  /*box-shadow*/
+  -webkit-box-shadow: inset 0em 0em 0em 1px rgba(0, 0, 0, 0.05), inset 0em 2px 0em rgba(255, 255, 255, 0.5), inset 0em -1em 2em rgba(0, 0, 0, 0.05), 0px 0.6em 0.5em -0.5em rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0em 0em 0em 1px rgba(0, 0, 0, 0.05), inset 0em 2px 0em rgba(255, 255, 255, 0.5), inset 0em -1em 2em rgba(0, 0, 0, 0.05), 0px 0.6em 0.5em -0.5em rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0em 0em 0em 1px rgba(0, 0, 0, 0.05), inset 0em 2px 0em rgba(255, 255, 255, 0.5), inset 0em -1em 2em rgba(0, 0, 0, 0.05), 0px 0.6em 0.5em -0.5em rgba(0, 0, 0, 0.3);
+  /*border-radius*/
+  -webkit-border-radius: 0em;
+  -moz-border-radius: 0em;
+  border-radius: 0em;
+  h1 {
+    text-shadow: 0px 1px #eee;
+    font-family: overpass;
+    font-weight: normal;
+    &.section-index {
+      background-image: none; } } }
+
+.administer nav#administer_nav {
+  height: 6.5em !important;
+  li a {
+    padding: 4em 2em 2em 2em !important;
+    cursor: pointer; } }
+
+/* sub-tabs were wonky,  fixing them too */
+
+section {
+  &.admin-content-section > header, &.content-section header {
+    /*background-image: none !important;*/
+    /*box-shadow: inset 0px -1em 1em -1em  #dad*/
+    /*box-shadow: inset 0px -1em 1em -1em #dadada;*/
+    /*margin: 2em -1.25em;*/
+    /*padding: 0em 2em; }*/
+  }
+  &.admin-content-section > header nav a, &.content-section header nav a {
+    font-family: overpass;
+    font-size: 1.5em;
+    color: #aaa !important; }
+  &.admin-content-section > header nav a.active, &.content-section header nav a.active {
+    font-weight: normal !important;
+    color: #000  !important; }
+  &.admin-content-section > header nav a:hover, &.content-section header nav a:hover {
+    color: #555 !important; } }
+
+/* layout 1558 */
