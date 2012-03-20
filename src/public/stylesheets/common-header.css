@@ -465,7 +465,7 @@ header.shell-design > article section:last-child a:first-child {
 }
 
 header.shell-design > article section:last-child a:first-child:after {
-  content: "!";
+  /*content: "!";*/
   color: #2e4e66;
   text-align: center;
   background-color: #ccc !important;
@@ -525,3 +525,4 @@ header.shell-design > article section:last-child a:first-child:after {
   display: table;
   clear: both;
 }
+

@@ -953,6 +953,9 @@ header#masthead{
     }
   }
 
+}
+
+
   ul#user-menu {
     position: absolute;
     display: none;
@@ -994,14 +997,12 @@ header#masthead{
     }
   }
 
-}
-
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Alert Flash -- v.0.0.1 [flash] (flash.scss)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 #flash-hud{
-  width: 944px;
+  width: 900px;
   margin: 0 auto;
   background-color: #ddd;
   -webkit-border-radius: 0px 0px 7px 7px;
@@ -3737,5 +3738,11 @@ section {
     color: #000  !important; }
   &.admin-content-section > header nav a:hover, &.content-section header nav a:hover {
     color: #555 !important; } }
+
+
+/* Navigation tabs should indicate those that are used */
+body.administer nav#appnav li:last-child a{background-color: #444  !important}
+body.monitor nav#appnav li:first-child a{background-color: #444  !important}
+
 
 /* layout 1558 */
