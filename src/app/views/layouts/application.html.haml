@@ -52,21 +52,23 @@
             Cloud
             %strong Forms
             %em Cloud Engine
-          / Need to split this out into a partial... mawagner
+          / Need to split this out into a partial... mawagner...
+          / maybe just make render_navigation :level => 1 work
           %nav#appnav
             %ul
-              %li
+              %li#monitor-button
                 %a{:href => "/pools"} Monitor
-                %ul
-                  %li
-                    %a{:href => "/pools/new"} new resource zone
-              %li
+              %li#administer-button
                 %a{:href => "/users"} Administer
+          / Notifications and user dropdown -- disable notifications for now
           %section
-            %a{:href => '#', :title => '0 notifications'} 0
             %a{:href => '#'}= current_user.name
+            %ul#user-menu
+              %li= link_to t('masthead.my_account'), account_path
+              %li= link_to t('masthead.logout'), logout_path
 
       #content
+        = render :partial => '/layouts/new_notification' if flash.present? or content_for?(:error_messages)
         -# works with any 960 container (.container_16 or .container_24)
         = yield
         .clear
