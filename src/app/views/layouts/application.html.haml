@@ -61,7 +61,7 @@
               %li#administer-button
                 %a{:href => "/users"} Administer
           / Notifications and user dropdown -- disable notifications for now
-          %section
+          %section#usermenu
             %a{:href => '#'}= current_user.name
             %ul#user-menu
               %li= link_to t('masthead.my_account'), account_path
