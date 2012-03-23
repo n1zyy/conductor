@@ -57,9 +57,9 @@
           %nav#appnav
             %ul
               %li#monitor-button
-                %a{:href => "/pools"} Monitor
+                = link_to t('navigation.first_level.monitor'), pools_path
               %li#administer-button
-                %a{:href => "/users"} Administer
+                = link_to t('navigation.first_level.administer'), users_path
           / Notifications and user dropdown -- disable notifications for now
           %section#usermenu
             %a{:href => '#'}= current_user.name
